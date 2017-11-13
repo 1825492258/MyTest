@@ -133,7 +133,6 @@ public class OKHttpClientImp implements IHttpClient {
                 if (response.isSuccessful()) {
                     setSuccessCall(response.code(), response.body().string(), callBack);
                 } else {
-                    Log.d("jiejie", response.code() + "  " + response.body().string());
                     setFailureCall(response.code(), callBack);
                 }
             }
@@ -146,6 +145,7 @@ public class OKHttpClientImp implements IHttpClient {
             public void run() {
                 if (callBack != null) {
                     callBack.onFailure(code);
+                    Log.d("jiejie","Failure  " + code);
                 }
             }
         });
@@ -157,39 +157,9 @@ public class OKHttpClientImp implements IHttpClient {
             public void run() {
                 if (callBack != null) {
                     callBack.onSuccess(new BaseResponse(code, string));
+                    Log.d("jiejie","Success  " + code + " " + string);
                 }
             }
         });
     }
-
-
-//    /**
-//     * 请求执行过程
-//     *
-//     * @param request Request
-//     * @return IResponse
-//     */
-//    private IResponse execute(Request request) {
-//        // final BaseResponse commonResponse = new BaseResponse();
-//        Log.d("jiejie", "----");
-//        mOkHttpClient.newCall(request).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-////                BaseResponse commonResponse = new BaseResponse();
-////                commonResponse.setCode(1111);
-////                commonResponse.setData(e.getMessage());
-//
-//                Log.d("jiejie", "onFailure");
-//            }
-//
-//            @Override
-//            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-//                Log.d("jiejie", "onResponse" + response.body().string());
-//                // BaseResponse commonResponse = new BaseResponse();
-//
-//                // return commonResponse;
-//            }
-//        });
-//        return null;
-//    }
 }
