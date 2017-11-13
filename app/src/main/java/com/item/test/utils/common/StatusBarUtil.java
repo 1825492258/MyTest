@@ -17,20 +17,23 @@ import android.view.WindowManager;
  */
 
 public class StatusBarUtil {
-    public static int DEFAULT_COLOR = 0;
-    public static float DEFAULT_ALPHA = 0;//Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
-    public static final int MIN_API = 19;
+    private static int DEFAULT_COLOR = 0;
+    private static float DEFAULT_ALPHA = 0;//Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
+    private static final int MIN_API = 19;
 
     //<editor-fold desc="沉侵">
     public static void immersive(Activity activity) {
         immersive(activity, DEFAULT_COLOR, DEFAULT_ALPHA);
     }
+
     public static void immersive(Window window) {
         immersive(window, DEFAULT_COLOR, DEFAULT_ALPHA);
     }
+
     public static void immersive(Activity activity, int color) {
         immersive(activity.getWindow(), color, 1f);
     }
+
     public static void immersive(Activity activity, int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
         immersive(activity.getWindow(), color, alpha);
     }
@@ -55,10 +58,12 @@ public class StatusBarUtil {
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
+
     public static int mixtureColor(int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
         int a = (color & 0xff000000) == 0 ? 0xff : color >>> 24;
         return (color & 0x00ffffff) | (((int) (a * alpha)) << 24);
     }
+
     /**
      * 创建假的透明栏
      */
@@ -78,7 +83,10 @@ public class StatusBarUtil {
             }
         }
     }
-    /** 获取状态栏高度 */
+
+    /**
+     * 获取状态栏高度
+     */
     public static int getStatusBarHeight(Context context) {
         int result = 24;
         int resId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -91,7 +99,9 @@ public class StatusBarUtil {
         return result;
     }
 
-    /** 增加View的paddingTop,增加的值为状态栏高度 (智能判断，并设置高度)*/
+    /**
+     * 增加View的paddingTop,增加的值为状态栏高度 (智能判断，并设置高度)
+     */
     public static void setPaddingSmart(Context context, View view) {
         if (Build.VERSION.SDK_INT >= MIN_API) {
             ViewGroup.LayoutParams lp = view.getLayoutParams();
@@ -102,7 +112,10 @@ public class StatusBarUtil {
                     view.getPaddingRight(), view.getPaddingBottom());
         }
     }
-    /** 增加View的高度以及paddingTop,增加的值为状态栏高度.一般是在沉浸式全屏给ToolBar用的 */
+
+    /**
+     * 增加View的高度以及paddingTop,增加的值为状态栏高度.一般是在沉浸式全屏给ToolBar用的
+     */
     public static void setHeightAndPadding(Context context, View view) {
         if (Build.VERSION.SDK_INT >= MIN_API) {
             ViewGroup.LayoutParams lp = view.getLayoutParams();

@@ -1,16 +1,46 @@
 package com.item.test;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+
+import com.item.test.activity.base.BaseActivity;
+import com.item.test.utils.common.StatusBarUtil;
+
+import butterknife.BindView;
 
 /**
  * 用来写安卓艺术探究的demo
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+    @BindView(R.id.bar_tool)
+    Toolbar toolbar;
+    @BindView(R.id.btn_main_one)
+    Button btnOne; // 去登录界面
+    @Override
+    protected int getContentLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void initListener() {
+        super.initListener();
+        btnOne.setOnClickListener(this);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        StatusBarUtil.setPaddingSmart(this,toolbar);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_main_one: // 去登录界面
+
+                break;
+        }
     }
 }

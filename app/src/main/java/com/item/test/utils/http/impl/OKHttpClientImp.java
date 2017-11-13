@@ -7,6 +7,7 @@ import android.util.Log;
 
 
 import com.item.test.utils.http.IHttpClient;
+import com.item.test.utils.http.IRequest;
 
 import java.io.IOException;
 import java.util.Map;
