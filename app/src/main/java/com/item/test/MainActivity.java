@@ -13,6 +13,7 @@ import butterknife.BindView;
 
 /**
  * 用来写安卓艺术探究的demo
+ * j
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
