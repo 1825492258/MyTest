@@ -53,10 +53,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_main_one: // 去登录界面
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
-            case R.id.btn_main_two:
+            case R.id.btn_main_two: // 下拉刷新上拉加载
                 startActivity(new Intent(this, BillsActivity.class));
                 break;
-            case R.id.btn_main_three:
+            case R.id.btn_main_three: //
                 startActivity(new Intent(this, LoadActivity.class));
                 break;
         }

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.item.test.MainActivity;
 import com.item.test.R;
+import com.item.test.utils.common.StatusBarUtil;
 
 import java.util.Calendar;
 
@@ -24,7 +25,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-        //  mSplashImage.setImageResource(getBackgroundImageResID());
+        // 设置状态栏透明化
+        StatusBarUtil.immersive(this);
+        mSplashImage.setImageResource(getBackgroundImageResID());
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.splash);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -46,6 +49,10 @@ public class SplashActivity extends AppCompatActivity {
         mSplashImage.startAnimation(animation);
     }
 
+    /**
+     * 根据每天的时间来获取图片资源
+     * @return ImageResID(
+     */
     public int getBackgroundImageResID() {
         int resId;
         Calendar calendar = Calendar.getInstance();
