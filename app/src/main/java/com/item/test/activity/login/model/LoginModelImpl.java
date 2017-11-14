@@ -58,4 +58,9 @@ public class LoginModelImpl implements ILoginModel{
             }
         });
     }
+
+    @Override
+    public void getBills(int page, BaseModelCallBack baseModelCallBack) {
+
+    }
 }

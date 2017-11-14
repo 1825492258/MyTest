@@ -24,4 +24,6 @@ public interface ILoginModel {
      * @param baseModelCallBack 回调
      */
     void login(String phone, String code, BaseModelCallBack baseModelCallBack);
+
+    void getBills(int page,BaseModelCallBack baseModelCallBack);
 }
