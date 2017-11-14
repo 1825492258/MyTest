@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.item.test.activity.base.BaseActivity;
+import com.item.test.activity.login.view.BillsActivity;
 import com.item.test.activity.login.view.LoginActivity;
 import com.item.test.utils.common.StatusBarUtil;
 
@@ -21,7 +22,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Toolbar toolbar;
     @BindView(R.id.btn_main_one)
     Button btnOne; // 去登录界面
-
+    @BindView(R.id.btn_main_two)
+    Button btnTwo;
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_main;
@@ -31,6 +33,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initListener() {
         super.initListener();
         btnOne.setOnClickListener(this);
+        btnTwo.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +47,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_main_one: // 去登录界面
                 startActivity(new Intent(this, LoginActivity.class));
+                break;
+            case R.id.btn_main_two:
+                startActivity(new Intent(this,BillsActivity.class));
                 break;
         }
     }

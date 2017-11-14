@@ -1,7 +1,7 @@
 package com.item.test.activity.login.view;
 
 import com.item.test.activity.base.IView;
-import com.item.test.activity.login.model.bean.Bills;
+import com.item.test.activity.login.model.bean.ImageBean;
 
 import java.util.List;
 
@@ -10,6 +10,10 @@ import java.util.List;
  */
 
 public interface IBills extends IView {
-    void onRefresh(List<Bills> bills);
-    void onLoadMore(List<Bills> bills);
+
+    void onRefresh(List<ImageBean> list);
+
+    void onLoadMore(List<ImageBean> list);
+
+    void onFailureRefresh(int code,int type);
 }

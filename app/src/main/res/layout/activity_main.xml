@@ -23,5 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="登录" />
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/btn_main_two"
+        android:text="上拉加载下拉刷新"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

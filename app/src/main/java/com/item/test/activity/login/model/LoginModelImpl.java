@@ -60,7 +60,19 @@ public class LoginModelImpl implements ILoginModel{
     }
 
     @Override
-    public void getBills(int page, BaseModelCallBack baseModelCallBack) {
+    public void getBills(int page, final BaseModelCallBack baseModelCallBack) {
+        // http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1
+        IRequest request = new BaseRequest("http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/" + page);
+        OKHttpClientImp.getInstance().get(request, false, new IHttpClient.RequestCallBack() {
+            @Override
+            public void onSuccess(BaseResponse response) {
+                baseModelCallBack.onResponse(response);
+            }
 
+            @Override
+            public void onFailure(int code) {
+                baseModelCallBack.onFailure(code);
+            }
+        });
     }
 }
