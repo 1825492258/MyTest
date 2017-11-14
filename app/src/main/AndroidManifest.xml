@@ -22,9 +22,10 @@
         </activity>
         <activity android:name=".activity.login.view.LoginActivity" />
         <activity android:name=".activity.login.view.BillsActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".activity.login.view.BillsActivity" />
-        <activity android:name=".activity.test.TestOneActivity"></activity>
+        <activity android:name=".activity.test.TestOneActivity" />
+        <activity android:name=".loading.LoadActivity"></activity>
     </application>
 
 </manifest>

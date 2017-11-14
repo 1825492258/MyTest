@@ -28,5 +28,10 @@
         android:id="@+id/btn_main_two"
         android:text="上拉加载下拉刷新"
         android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/btn_main_three"
+        android:text="一家加载"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

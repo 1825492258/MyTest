@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.item.test.activity.base.BaseActivity;
 import com.item.test.activity.login.view.BillsActivity;
 import com.item.test.activity.login.view.LoginActivity;
+import com.item.test.loading.LoadActivity;
 import com.item.test.utils.common.StatusBarUtil;
 
 import butterknife.BindView;
@@ -24,6 +25,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Button btnOne; // 去登录界面
     @BindView(R.id.btn_main_two)
     Button btnTwo;
+    @BindView(R.id.btn_main_three)
+    Button btnThree;
+
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_main;
@@ -34,6 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.initListener();
         btnOne.setOnClickListener(this);
         btnTwo.setOnClickListener(this);
+        btnThree.setOnClickListener(this);
     }
 
     @Override
@@ -49,7 +54,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.btn_main_two:
-                startActivity(new Intent(this,BillsActivity.class));
+                startActivity(new Intent(this, BillsActivity.class));
+                break;
+            case R.id.btn_main_three:
+                startActivity(new Intent(this, LoadActivity.class));
                 break;
         }
     }
