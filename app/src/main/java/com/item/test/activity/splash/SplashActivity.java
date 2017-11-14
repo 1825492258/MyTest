@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.item.test.MainActivity;
 import com.item.test.R;
@@ -25,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
-      //  mSplashImage.setImageResource(getBackgroundImageResID());
+        //  mSplashImage.setImageResource(getBackgroundImageResID());
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.splash);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -36,6 +35,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                SplashActivity.this.finish();
             }
 
             @Override
